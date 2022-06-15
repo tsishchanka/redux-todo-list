@@ -1,13 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import TodoItem from '@/components/TodoItem';
+import TodoItem from '@/components/TodoItem'
 
 function App() {
-  return (
-    <div>
-      <TodoItem />
-    </div>
-  );
+  return <div>{children}</div>
 }
 
-export default App;
+export default App

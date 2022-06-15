@@ -1,83 +1,62 @@
-import React from 'react';
+import React from 'react'
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik'
 
-import { Button, TextField } from '@mui/material';
+import CreateButton from '../Buttons/CreateButton'
+import ErrorMessageField from '../ErrorMessageField'
+import TodoInput from '../TodoInput'
 
 import {
   Container,
   Title,
   TodoItemWrapper,
   ButtonsWrapper,
-  ErrorMessageField,
-} from './styled';
+} from './styled'
 
 const TodoItem = () => {
-  const initialValues = { inputText: '', address: '' };
+  const initialValues = { inputText: '' }
+
   const onSubmit = (values, onSubmitProps) => {
-    console.log('VALUES', values);
-    onSubmitProps.setSubmitting(false);
-    onSubmitProps.resetForm();
-  };
+    console.log('VALUES', values)
+    onSubmitProps.setSubmitting(false)
+    onSubmitProps.resetForm()
+  }
   const validate = (values) => {
-    const errors = {};
+    const errors = {}
 
     if (!values.inputText) {
-      errors.inputText = 'To create a task this field should not be empty...';
+      errors.inputText = 'The task field is empty.'
     }
-
-    return errors;
-  };
+    return errors
+  }
   return (
     <Container>
       <Title>To-do List</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
-        validate={validate}
-      >
+        validate={validate}>
         {(formik) => {
           return (
             <Form>
               <TodoItemWrapper>
-                <Field name='inputText'>
-                  {({ field }) => {
-                    return (
-                      <TextField
-                        id='inputText'
-                        multiline
-                        fullWidth
-                        placeholder='Type your task here ...'
-                        maxRows={8}
-                        {...field}
-                      ></TextField>
-                    );
-                  }}
-                </Field>
-
+                <TodoInput name="inputText" />
                 <ButtonsWrapper>
-                  <Button
-                    type='submit'
-                    variant='contained'
-                    size='medium'
-                    disabled={!formik.isValid || formik.isSubmitting}
-                  >
+                  <CreateButton
+                    disabled={
+                      !formik.isValid || formik.isSubmitting
+                    }>
                     Create
-                  </Button>
+                  </CreateButton>
                 </ButtonsWrapper>
               </TodoItemWrapper>
-
-              <ErrorMessage name='inputText'>
-                {(errorMsg) => (
-                  <ErrorMessageField>{errorMsg}</ErrorMessageField>
-                )}
-              </ErrorMessage>
+              <ErrorMessageField name="inputText" />
             </Form>
-          );
+          )
         }}
       </Formik>
     </Container>
-  );
-};
+  )
+}
 
-export default TodoItem;
+export default TodoItem

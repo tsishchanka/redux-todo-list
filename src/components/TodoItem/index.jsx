@@ -20,7 +20,7 @@ const TodoItem = () => {
     onSubmitProps.resetForm();
   };
   const validate = (values) => {
-    let errors = {};
+    const errors = {};
 
     if (!values.inputText) {
       errors.inputText = 'To create a task this field should not be empty...';

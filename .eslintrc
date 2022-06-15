@@ -26,7 +26,11 @@
                 "object",
                 "type"
             ],
-            "newlines-between": "always-and-inside-groups"
+            "newlines-between": "always-and-inside-groups",
+            "alphabetize": {
+                "order": "asc",
+                "caseInsensitive": true
+            }
         }
     ],
     "indent": [
@@ -47,22 +51,7 @@
     "no-unused-vars": "warn",
     "no-console": "warn",
     "operator-linebreak": "warn",
-    "overrides": [
-        {
-            "files": [
-                "src/index.js"
-            ],
-            "rules": {
-                "react/jsx-filename-extension": "off",
-                "prettier/prettier": [
-                    "error",
-                    {
-                        "singleQuote": true
-                    }
-                ]
-            }
-        }
-    ],
+    "padding-line-between-statements": "error",
     "prefer-const": [
         "error",
         {
@@ -80,6 +69,6 @@
     "semi": [
         "warn",
         "always"
-    ]    
+    ]
     }
 }

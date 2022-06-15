@@ -1,18 +1,18 @@
 import React from 'react'
 
 import { Routes, Route } from 'react-router-dom'
-import TodoItemContainer from '../../containers/TodoItemContainer'
+
+import { HOME_PAGE_ROUTE } from '@/constants'
+import TodoListContainer from '@/containers/TodoListContainer'
 
 const RoutesComponent = () => (
-  <div>
-    <Routes>
-      <Route
-        exact
-        path="/"
-        element={<TodoItemContainer />}
-      />
-    </Routes>
-  </div>
+  <Routes>
+    <Route
+      exact
+      path={HOME_PAGE_ROUTE}
+      element={<TodoListContainer />}
+    />
+  </Routes>
 )
 
 export default RoutesComponent

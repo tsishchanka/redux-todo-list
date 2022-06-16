@@ -1,21 +1,23 @@
-import React, { useState, useCallback } from 'react';
-
-import { Formik, Form } from 'formik';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
 import TodoInput from '../TodoInput';
+import { SAVE_EDITED_TASK } from '../../redux/actions';
 
-const EditableTodo = ({ initialText, onSubmit, name }) => {
-  const [editableValue, setEditableValue] = useState(initialText);
-  const initialValues = { text: initialText };
+const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
+  const dispatch = useDispatch();
+  const initialValues = { id, text: initialText };
 
-  // const onSubmit = useCallback((values, onSubmitProps) => {
-  //   const inputData = values.inputText;
-  //   console.log('VALUES', inputData);
-  //   dispatch(CREATE_TASK({ text: inputData }));
-  //   onSubmitProps.setSubmitting(false);
-  //   onSubmitProps.resetForm();
-  // }, []);
-  console.log('initialValues', initialValues);
+  const onSubmit = useCallback(
+    (values, onSubmitProps) => {
+      const inputData = values.text;
+      dispatch(SAVE_EDITED_TASK({ id, inputData }));
+      onSubmitProps.setSubmitting(false);
+      onSubmitProps.resetForm();
+    },
+    [id, dispatch],
+  );
+
   const validate = values => {
     const errors = {};
 
@@ -28,13 +30,13 @@ const EditableTodo = ({ initialText, onSubmit, name }) => {
   return (
     <div>
       <TodoInput
+        isEditMode={isEditMode}
         name={name}
         initialValues={initialValues}
         validate={validate}
         onSubmit={onSubmit}
+        handleUndo={() => handleUndo(initialValues.id)}
       />
-
-      <button></button>
     </div>
   );
 };

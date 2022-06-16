@@ -1,26 +1,59 @@
-import React from 'react'
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { Field } from 'formik'
+import { Formik, Form, Field } from 'formik';
 
-import { TextField } from '@mui/material'
+import { TextField } from '@mui/material';
 
-const TodoInput = ({ label, name, ...rest }) => {
+import CreateButton from '../Buttons/CreateButton';
+import ErrorMessageField from '../ErrorMessageField';
+
+import { TodoInputWrapper } from './styled';
+
+const TodoInput = ({
+  onSubmit,
+  initialValues,
+  label,
+  name,
+  validate,
+  ...rest
+}) => {
   return (
-    <Field name={name}>
-      {({ field }) => {
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validate={validate}
+    >
+      {formik => {
+        console.log('formik.values', formik.values);
         return (
-          <TextField
-            id={name}
-            multiline
-            fullWidth
-            placeholder="Type your task here ..."
-            maxRows={8}
-            {...field}
-            {...rest}></TextField>
-        )
+          <Form>
+            <TodoInputWrapper>
+              <Field name={name}>
+                {({ field }) => {
+                  return (
+                    <TextField
+                      id={name}
+                      multiline
+                      fullWidth
+                      placeholder="Type your task here ..."
+                      maxRows={8}
+                      {...field}
+                      {...rest}
+                    />
+                  );
+                }}
+              </Field>
+              <CreateButton disabled={!formik.isValid || formik.isSubmitting}>
+                Save
+              </CreateButton>
+            </TodoInputWrapper>
+            <ErrorMessageField name={name} />
+          </Form>
+        );
       }}
-    </Field>
-  )
-}
+    </Formik>
+  );
+};
 
-export default TodoInput
+export default TodoInput;

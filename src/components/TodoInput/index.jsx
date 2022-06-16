@@ -1,5 +1,4 @@
-import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 
 import { Formik, Form, Field } from 'formik';
 
@@ -11,11 +10,13 @@ import ErrorMessageField from '../ErrorMessageField';
 import { TodoInputWrapper } from './styled';
 
 const TodoInput = ({
-  onSubmit,
   initialValues,
+  isEditMode,
   label,
   name,
   validate,
+  handleUndo,
+  onSubmit,
   ...rest
 }) => {
   return (
@@ -25,7 +26,6 @@ const TodoInput = ({
       validate={validate}
     >
       {formik => {
-        console.log('formik.values', formik.values);
         return (
           <Form>
             <TodoInputWrapper>
@@ -47,6 +47,7 @@ const TodoInput = ({
               <CreateButton disabled={!formik.isValid || formik.isSubmitting}>
                 Save
               </CreateButton>
+              {isEditMode && <button onClick={handleUndo}>Cancel</button>}
             </TodoInputWrapper>
             <ErrorMessageField name={name} />
           </Form>

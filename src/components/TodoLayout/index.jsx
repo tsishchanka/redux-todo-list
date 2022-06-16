@@ -17,7 +17,12 @@ import {
   CreateTodoWrapper,
 } from './styled';
 
-const TodoLayout = ({ taskList, handleEditMode }) => {
+const TodoLayout = ({
+  taskList,
+  handleEditMode,
+  handleTaskRemove,
+  handleDiscardChanges,
+}) => {
   const dispatch = useDispatch();
 
   const initialValues = { text: '' };
@@ -25,7 +30,6 @@ const TodoLayout = ({ taskList, handleEditMode }) => {
   const onSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
-      console.log('onSubmitProps', onSubmitProps);
       console.log('VALUES', values);
       dispatch(CREATE_TASK({ text: inputData }));
       onSubmitProps.setSubmitting(false);
@@ -38,7 +42,7 @@ const TodoLayout = ({ taskList, handleEditMode }) => {
     <Container>
       <TodoWrapper>
         <CreateTodoWrapper>
-          <Title>Create your first task</Title>
+          <Title>Create your task</Title>
           <TodoInput
             name="text"
             initialValues={initialValues}
@@ -54,13 +58,16 @@ const TodoLayout = ({ taskList, handleEditMode }) => {
                 key={task.id}
                 text={task.text}
                 handleEdit={() => handleEditMode(task.id)}
+                handleDelete={() => handleTaskRemove(task.id)}
               />
             ) : (
               <EditableTodo
                 name="text"
+                isEditMode={task.isEditMode}
+                id={task.id}
                 key={task.id}
                 initialText={task.text}
-                onSubmit={onSubmit}
+                handleUndo={handleDiscardChanges}
               />
             );
           })}

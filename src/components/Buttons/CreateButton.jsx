@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Button } from '@mui/material'
+import { Button } from '@mui/material';
 
-import { ButtonsWrapper } from './styled'
+import { ButtonsWrapper } from './styled';
 
 const CreateButton = ({ children, disabled }) => {
   return (
@@ -11,11 +11,12 @@ const CreateButton = ({ children, disabled }) => {
         type="submit"
         variant="contained"
         size="medium"
-        disabled={disabled}>
+        disabled={disabled}
+      >
         {children}
       </Button>
     </ButtonsWrapper>
-  )
-}
+  );
+};
 
-export default CreateButton
+export default CreateButton;

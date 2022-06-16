@@ -1,50 +1,71 @@
-import { Formik, Form } from 'formik';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+// import { Formik, Form } from 'formik';
 
-import CreateButton from '../Buttons/CreateButton';
-import ErrorMessageField from '../ErrorMessageField';
+// import CreateButton from '../Buttons/CreateButton';
+// import ErrorMessageField from '../ErrorMessageField';
 import TodoInput from '../TodoInput';
+import TodoItem from '../TodoItem';
+import EditableTodo from '../EditableTodo';
+import { CREATE_TASK } from '../../redux/actions';
 
-import { Container, Title, TodoItemWrapper } from './styled';
+import {
+  Container,
+  Title,
+  TodoWrapper,
+  ListWrapper,
+  CreateTodoWrapper,
+} from './styled';
 
-const TodoLayout = () => {
-  const initialValues = { inputText: '' };
+const TodoLayout = ({ taskList, handleEditMode }) => {
+  const dispatch = useDispatch();
 
-  const onSubmit = (values, onSubmitProps) => {
-    console.log('VALUES', values);
-    onSubmitProps.setSubmitting(false);
-    onSubmitProps.resetForm();
-  };
-  const validate = values => {
-    const errors = {};
+  const initialValues = { text: '' };
 
-    if (!values.inputText) {
-      errors.inputText = 'The task field is empty.';
-    }
-    return errors;
-  };
+  const onSubmit = useCallback(
+    (values, onSubmitProps) => {
+      const inputData = values.text;
+      console.log('onSubmitProps', onSubmitProps);
+      console.log('VALUES', values);
+      dispatch(CREATE_TASK({ text: inputData }));
+      onSubmitProps.setSubmitting(false);
+      onSubmitProps.resetForm();
+    },
+    [dispatch],
+  );
+
   return (
     <Container>
-      <Title>To-do List</Title>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validate={validate}>
-        {formik => {
-          return (
-            <Form>
-              <TodoItemWrapper>
-                <TodoInput name="inputText" />
-
-                <CreateButton disabled={!formik.isValid || formik.isSubmitting}>
-                  Create
-                </CreateButton>
-              </TodoItemWrapper>
-              <ErrorMessageField name="inputText" />
-            </Form>
-          );
-        }}
-      </Formik>
+      <TodoWrapper>
+        <CreateTodoWrapper>
+          <Title>Create your first task</Title>
+          <TodoInput
+            name="text"
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+          />
+        </CreateTodoWrapper>
+        <ListWrapper>
+          <Title>To-do List</Title>
+          {taskList.map((task, index) => {
+            return !task.isEditMode ? (
+              <TodoItem
+                orderNumber={index + 1}
+                key={task.id}
+                text={task.text}
+                handleEdit={() => handleEditMode(task.id)}
+              />
+            ) : (
+              <EditableTodo
+                name="text"
+                key={task.id}
+                initialText={task.text}
+                onSubmit={onSubmit}
+              />
+            );
+          })}
+        </ListWrapper>
+      </TodoWrapper>
     </Container>
   );
 };

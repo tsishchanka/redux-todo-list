@@ -26,11 +26,7 @@
                 "object",
                 "type"
             ],
-            "newlines-between": "always-and-inside-groups",
-            "alphabetize": {
-                "order": "asc",
-                "caseInsensitive": true
-            }
+            "newlines-between": "always-and-inside-groups"
         }
     ],
     "indent": [
@@ -60,10 +56,6 @@
         }
     ],
     "react/prop-types": "off",
-    "react/jsx-fragments": [
-        1,
-        "element"
-    ],
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-closing-tag-location": 2,
     "semi": [

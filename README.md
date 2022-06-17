@@ -1,5 +1,4 @@
 # To-do App Description
-### App on Netlify [To-do App](https://quiet-beijinho-147f81.netlify.app/)
 
 The functionality that was implemented in the application:
 - create task;

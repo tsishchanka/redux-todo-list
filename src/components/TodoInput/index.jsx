@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 
 import { TextField } from '@mui/material';
 
-import CreateButton from '../Buttons/CreateButton';
+import { CreateButton, DiscardChangesButton } from '../Buttons';
 import ErrorMessageField from '../ErrorMessageField';
 
 import { TodoInputWrapper } from './styled';
@@ -14,11 +14,18 @@ const TodoInput = ({
   isEditMode,
   label,
   name,
-  validate,
   handleUndo,
   onSubmit,
   ...rest
 }) => {
+  const validate = values => {
+    const errors = {};
+
+    if (!values.text) {
+      errors.text = 'The task field is empty.';
+    }
+    return errors;
+  };
   return (
     <Formik
       initialValues={initialValues}
@@ -44,10 +51,11 @@ const TodoInput = ({
                   );
                 }}
               </Field>
-              <CreateButton disabled={!formik.isValid || formik.isSubmitting}>
-                Save
-              </CreateButton>
-              {isEditMode && <button onClick={handleUndo}>Cancel</button>}
+              <CreateButton
+                type="submit"
+                disabled={!formik.isValid || formik.isSubmitting}
+              />
+              {isEditMode && <DiscardChangesButton handleUndo={handleUndo} />}
             </TodoInputWrapper>
             <ErrorMessageField name={name} />
           </Form>

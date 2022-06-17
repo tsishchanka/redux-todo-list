@@ -1,12 +1,9 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Formik, Form } from 'formik';
 
-// import CreateButton from '../Buttons/CreateButton';
-// import ErrorMessageField from '../ErrorMessageField';
-import TodoInput from '../TodoInput';
-import TodoItem from '../TodoItem';
-import EditableTodo from '../EditableTodo';
+import TodoInput from '../../components/TodoInput';
+import TodoItem from '../../components/TodoItem';
+import EditableTodo from '../../components/EditableTodo';
 import { CREATE_TASK } from '../../redux/actions';
 
 import {
@@ -17,7 +14,7 @@ import {
   CreateTodoWrapper,
 } from './styled';
 
-const TodoLayout = ({
+const TodoList = ({
   taskList,
   handleEditMode,
   handleTaskRemove,
@@ -50,7 +47,6 @@ const TodoLayout = ({
           />
         </CreateTodoWrapper>
         <ListWrapper>
-          <Title>To-do List</Title>
           {taskList.map((task, index) => {
             return !task.isEditMode ? (
               <TodoItem
@@ -77,4 +73,4 @@ const TodoLayout = ({
   );
 };
 
-export default TodoLayout;
+export default TodoList;

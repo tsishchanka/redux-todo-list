@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
+import { color } from '@/theme';
+
 export const InputError = styled.div`
-  color: green;
+  color: ${color.orange};
   padding: 5px 15px;
-  margin-bottom: 15px;
 `;

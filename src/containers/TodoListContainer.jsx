@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SET_EDIT_MODE, DELETE_TASK, DISCARD_CHANGES } from '../redux/actions';
 
-import TodoLayout from '@/components/TodoLayout';
+import TodoList from '@/screens/TodoList';
 
 const TodoListContainer = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const TodoListContainer = () => {
   );
 
   return (
-    <TodoLayout
+    <TodoList
       taskList={taskList}
       handleEditMode={handleEditMode}
       handleTaskRemove={handleTaskRemove}

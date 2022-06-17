@@ -18,22 +18,12 @@ const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
     [id, dispatch],
   );
 
-  const validate = values => {
-    const errors = {};
-
-    if (!values.text) {
-      errors.text = 'The task field is empty.';
-    }
-    return errors;
-  };
-
   return (
     <div>
       <TodoInput
         isEditMode={isEditMode}
         name={name}
         initialValues={initialValues}
-        validate={validate}
         onSubmit={onSubmit}
         handleUndo={() => handleUndo(initialValues.id)}
       />

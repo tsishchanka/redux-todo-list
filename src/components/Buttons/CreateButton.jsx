@@ -1,20 +1,18 @@
 import React from 'react';
 
-import { Button } from '@mui/material';
+import { Tooltip, IconButton } from '@mui/material';
+import { BookmarkAdded as BookmarkAddedIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
 
-const CreateButton = ({ children, disabled }) => {
+const CreateButton = ({ disabled, type }) => {
   return (
     <ButtonsWrapper>
-      <Button
-        type="submit"
-        variant="contained"
-        size="medium"
-        disabled={disabled}
-      >
-        {children}
-      </Button>
+      <Tooltip title="Create Task" enterDelay={500}>
+        <IconButton type={type} disabled={disabled}>
+          <BookmarkAddedIcon color={disabled ? 'neutral' : 'primary'} />
+        </IconButton>
+      </Tooltip>
     </ButtonsWrapper>
   );
 };

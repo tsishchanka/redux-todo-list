@@ -1,8 +1,6 @@
 import React from 'react';
 
-import IconButton from '@mui/material/IconButton';
-
-import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material';
+import { EditButton, DeleteButton } from '../Buttons';
 
 import {
   TodoItemWrapper,
@@ -20,12 +18,8 @@ const TodoItem = ({ orderNumber, text, handleEdit, handleDelete }) => {
         </TodoText>
       </TodoTextWrapper>
       <IconButtonsWrapper>
-        <IconButton color="secondary" onClick={handleEdit}>
-          <EditIcon color="primary" />
-        </IconButton>
-        <IconButton color="secondary" onClick={handleDelete}>
-          <DeleteIcon color="primary" />
-        </IconButton>
+        <EditButton handleEdit={handleEdit} />
+        <DeleteButton handleDelete={handleDelete} />
       </IconButtonsWrapper>
     </TodoItemWrapper>
   );

@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import TodoInput from '../TodoInput';
-import { SAVE_EDITED_TASK } from '../../redux/actions';
+
+import { SAVE_EDITED_TASK } from '@/redux/actions';
 
 const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
   const dispatch = useDispatch();
@@ -19,16 +22,22 @@ const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
   );
 
   return (
-    <div>
-      <TodoInput
-        isEditMode={isEditMode}
-        name={name}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        handleUndo={() => handleUndo(initialValues.id)}
-      />
-    </div>
+    <TodoInput
+      isEditMode={isEditMode}
+      name={name}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      handleUndo={() => handleUndo(initialValues.id)}
+    />
   );
+};
+
+EditableTodo.propTypes = {
+  isEditMode: PropTypes.bool,
+  initialText: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  handleUndo: PropTypes.func,
 };
 
 export default EditableTodo;

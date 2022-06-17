@@ -10,9 +10,13 @@ export const TodoItemWrapper = styled.div`
   padding: 5px 20px;
   width: 457px;
   margin: 18px auto;
-  @media (max-width: 570px) {
+  @media (max-width: 580px) {
+    max-width: 350px;
+    margin: 18px 10px;
+  }
+  @media (max-width: 460px) {
+    max-width: 250px;
     margin: 10px 0;
-    width: 300px;
   }
 `;
 
@@ -27,6 +31,4 @@ export const TodoText = styled.p`
   margin: 0;
 `;
 
-export const IconButtonsWrapper = styled.div`
-  margin: auto 0;
-`;
+export const IconButtonsWrapper = styled.div``;

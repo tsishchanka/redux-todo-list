@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { IconButton, Tooltip } from '@mui/material';
+import PropTypes from 'prop-types';
 
+import { IconButton, Tooltip } from '@mui/material';
 import { Cancel as CancelIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
@@ -16,6 +17,10 @@ const DiscardChangesButton = ({ handleUndo }) => {
       </Tooltip>
     </ButtonsWrapper>
   );
+};
+
+DiscardChangesButton.propTypes = {
+  handleUndo: PropTypes.func,
 };
 
 export default DiscardChangesButton;

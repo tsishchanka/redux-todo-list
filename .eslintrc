@@ -55,7 +55,7 @@
             "ignoreReadBeforeAssign": false
         }
     ],
-    "react/prop-types": "off",
+    "react/prop-types": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-closing-tag-location": 2,
     "semi": [

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Formik, Form, Field } from 'formik';
 
 import { TextField } from '@mui/material';
@@ -12,7 +14,6 @@ import { TodoInputWrapper } from './styled';
 const TodoInput = ({
   initialValues,
   isEditMode,
-  label,
   name,
   handleUndo,
   onSubmit,
@@ -20,7 +21,6 @@ const TodoInput = ({
 }) => {
   const validate = values => {
     const errors = {};
-
     if (!values.text) {
       errors.text = 'The task field is empty.';
     }
@@ -43,7 +43,7 @@ const TodoInput = ({
                       id={name}
                       multiline
                       fullWidth
-                      placeholder="Type your task here ..."
+                      placeholder="Enter your task here ..."
                       maxRows={8}
                       {...field}
                       {...rest}
@@ -63,6 +63,14 @@ const TodoInput = ({
       }}
     </Formik>
   );
+};
+
+TodoInput.propTypes = {
+  isEditMode: PropTypes.bool,
+  initialValues: PropTypes.object,
+  name: PropTypes.string,
+  onSubmit: PropTypes.func,
+  handleUndo: PropTypes.func,
 };
 
 export default TodoInput;

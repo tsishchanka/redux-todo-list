@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Tooltip, IconButton } from '@mui/material';
 import { BookmarkAdded as BookmarkAddedIcon } from '@mui/icons-material';
 
@@ -15,6 +17,11 @@ const CreateButton = ({ disabled, type }) => {
       </Tooltip>
     </ButtonsWrapper>
   );
+};
+
+CreateButton.propTypes = {
+  disabled: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 export default CreateButton;

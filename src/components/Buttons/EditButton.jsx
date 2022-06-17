@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { IconButton, Tooltip } from '@mui/material';
+import PropTypes from 'prop-types';
 
+import { IconButton, Tooltip } from '@mui/material';
 import { Edit as EditIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
@@ -16,6 +17,10 @@ const EditButton = ({ handleEdit }) => {
       </Tooltip>
     </ButtonsWrapper>
   );
+};
+
+EditButton.propTypes = {
+  handleEdit: PropTypes.func,
 };
 
 export default EditButton;

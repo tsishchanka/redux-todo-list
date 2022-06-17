@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Tooltip, IconButton } from '@mui/material';
+import PropTypes from 'prop-types';
 
+import { Tooltip, IconButton } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
@@ -16,6 +17,10 @@ const DeleteButton = ({ handleDelete }) => {
       </Tooltip>
     </ButtonsWrapper>
   );
+};
+
+DeleteButton.propTypes = {
+  handleDelete: PropTypes.func,
 };
 
 export default DeleteButton;

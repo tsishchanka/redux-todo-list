@@ -1,10 +1,13 @@
+/* eslint-disable import/order */
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import TodoInput from '../../components/TodoInput';
-import TodoItem from '../../components/TodoItem';
-import EditableTodo from '../../components/EditableTodo';
-import { CREATE_TASK } from '../../redux/actions';
+import PropTypes from 'prop-types';
+
+import TodoInput from '@/components/TodoInput';
+import TodoItem from '@/components/TodoItem';
+import EditableTodo from '@/components/EditableTodo';
+import { CREATE_TASK } from '@/redux/actions';
 
 import {
   Container,
@@ -27,7 +30,6 @@ const TodoList = ({
   const onSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
-      console.log('VALUES', values);
       dispatch(CREATE_TASK({ text: inputData }));
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
@@ -71,6 +73,13 @@ const TodoList = ({
       </TodoWrapper>
     </Container>
   );
+};
+
+TodoList.propTypes = {
+  taskList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleEditMode: PropTypes.func,
+  handleTaskRemove: PropTypes.func,
+  handleDiscardChanges: PropTypes.func,
 };
 
 export default TodoList;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { EditButton, DeleteButton } from '../Buttons';
 
 import {
@@ -23,6 +25,13 @@ const TodoItem = ({ orderNumber, text, handleEdit, handleDelete }) => {
       </IconButtonsWrapper>
     </TodoItemWrapper>
   );
+};
+
+TodoItem.propTypes = {
+  orderNumber: PropTypes.number,
+  text: PropTypes.string,
+  handleEdit: PropTypes.func,
+  handleDelete: PropTypes.func,
 };
 
 export default TodoItem;

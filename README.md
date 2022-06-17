@@ -9,7 +9,8 @@ The functionality that was implemented in the application:
 - remove task;
 
 ## Technologies
- yarn, react, redux, react-redux, react-router-dom, prop-types, formik, Material-UI, styled-components
+ yarn, react, redux, react-redux, react-router-dom, prop-types, 
+ formik, Material-UI, styled-components
 
-### GitHub Pages
+### App on Netlify [To-do App](https://quiet-beijinho-147f81.netlify.app/)
 

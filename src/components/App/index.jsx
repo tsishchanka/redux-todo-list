@@ -1,23 +1,22 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from '../Header';
 
-const App = ({ children }) => {
+import { HOME_PAGE_ROUTE } from '@/constants';
+
+import TodoListContainer from '@/containers/TodoListContainer';
+
+const App = () => {
   return (
     <div>
       <Header />
-      {children}
+      <Routes>
+        <Route exact path={HOME_PAGE_ROUTE} element={<TodoListContainer />} />
+      </Routes>
     </div>
   );
-};
-
-App.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
 };
 
 export default App;

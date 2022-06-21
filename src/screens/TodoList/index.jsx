@@ -22,7 +22,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
 
   const initialValues = { text: '' };
 
-  const onSubmit = useCallback(
+  const handleSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
       dispatch(CREATE_TASK_ACTION({ text: inputData }));
@@ -40,7 +40,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
           <TodoInput
             name="text"
             initialValues={initialValues}
-            onSubmit={onSubmit}
+            onSubmit={handleSubmit}
           />
         </CreateTodoWrapper>
         <ListWrapper>

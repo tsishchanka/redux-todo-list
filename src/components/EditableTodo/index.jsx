@@ -11,7 +11,7 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const dispatch = useDispatch();
   const initialValues = { id, text: initialText };
 
-  const onSubmit = useCallback(
+  const handleSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
       dispatch(SAVE_EDITED_TASK_ACTION({ id, inputData }));
@@ -26,7 +26,7 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
       isEditMode={isEditMode}
       name={name}
       initialValues={initialValues}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       onUndo={() => onUndo(initialValues.id)}
     />
   );

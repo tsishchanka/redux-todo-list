@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export const ButtonsWrapper = styled.div`
-  margin: 2px;
+  margin: ${({ theme }) => theme.spaces[1]}px;
 `;

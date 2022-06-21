@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-import { color } from '@/theme';
-
 export const Container = styled.div`
-  padding: 0 15px;
-  margin: 0 auto;
-  background-color: ${color.lightYellow};
+  padding: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
+  margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[6]}px`};
+  background-color: ${({ theme }) => theme.color.lightYellow};
 `;
 
 export const TodoWrapper = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[6]}px`};
   justify-content: space-around;
   overflow: hidden;
 
@@ -20,7 +18,7 @@ export const TodoWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${color.primary};
+  color: ${({ theme }) => theme.color.primary};
   text-align: center;
 `;
 
@@ -32,30 +30,30 @@ export const TodoInputWrapper = styled.div`
 `;
 
 export const ButtonsWrapper = styled.div`
-  padding: 10px;
+  padding: ${({ theme }) => theme.spaces[3]}px;
 `;
 
 export const ErrorMessageField = styled.div`
-  color: ${color.orange};
-  padding: 5px 15px;
-  margin-bottom: 15px;
+  color: ${({ theme }) => theme.color.orange};
+  padding: ${({ theme }) => `${theme.spaces[2]}px ${theme.spaces[4]}px`};
+  margin-bottom: ${({ theme }) => theme.spaces[4]}px; ;
 `;
 
 export const ListWrapper = styled.div`
   height: 810px;
   margin: 20px auto 25px;
-  width: 550px;
-  overflow-y: auto;
+  width: ${({ theme }) => theme.size.xs}px;
+  overflow-y: ${({ theme }) => theme.spaces[5]};
   overflow-x: hidden;
   @media (max-width: 1070px) {
-    margin: 0 auto;
+    margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
     border-left: none;
   }
 `;
 
 export const CreateTodoWrapper = styled.div`
-  margin: 0 auto;
+  margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
   @media (max-width: 1070px) {
-    margin: 0 auto;
+    margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
   }
 `;

@@ -1,4 +1,4 @@
-export const color = {
+const color = {
   primary: '#004e89',
   secondary: '#1a659e',
   lightYellow: '#efefd0',
@@ -12,3 +12,22 @@ export const fontSize = {
   medium: '28px',
   small: '24px',
 };
+
+const size = {
+  xs: 550,
+  small: 768,
+  medium: 992,
+  large: 1200,
+  inputSize: 500,
+  smallWrapper: 250,
+  wrapper: 350,
+};
+
+const theme = {
+  color,
+  size,
+  spaces: [0, 2, 4, 8, 16, 'auto'],
+  fontSize,
+};
+
+export default theme;

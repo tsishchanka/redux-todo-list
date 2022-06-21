@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { color } from '@/theme';
-
 export const TodoInputWrapper = styled.div`
   display: flex;
-  width: 500px;
-  margin: 15px auto 0;
+  width: ${({ theme }) => theme.size.inputSize}px;
+  margin: ${({ theme }) => `${theme.spaces[4]}px ${theme.spaces[5]}`};
   align-items: center;
   @media (max-width: 1070px) {
     width: 100%;
@@ -13,7 +11,7 @@ export const TodoInputWrapper = styled.div`
 `;
 
 export const ErrorMessageField = styled.div`
-  color: ${color.orange};
-  padding: 5px 15px;
-  margin-bottom: 15px;
+  color: ${({ theme }) => theme.color.orange};
+  padding: ${({ theme }) => `${theme.spaces[2]}px ${theme.spaces[4]}px`};
+  margin-bottom: ${({ theme }) => theme.spaces[4]}px;
 `;

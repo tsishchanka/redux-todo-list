@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import TodoInput from '../TodoInput';
 
+import { TodoItemWrapper } from './styled';
+
 import { SAVE_EDITED_TASK } from '@/redux/actions';
 
 const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
@@ -22,13 +24,15 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   );
 
   return (
-    <TodoInput
-      isEditMode={isEditMode}
-      name={name}
-      initialValues={INITIAL_VALUES}
-      onSubmit={handleSubmit}
-      onUndo={() => onUndo(INITIAL_VALUES.id)}
-    />
+    <TodoItemWrapper>
+      <TodoInput
+        isEditMode={isEditMode}
+        name={name}
+        initialValues={INITIAL_VALUES}
+        onSubmit={handleSubmit}
+        onUndo={() => onUndo(INITIAL_VALUES.id)}
+      />
+    </TodoItemWrapper>
   );
 };
 

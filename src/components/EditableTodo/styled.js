@@ -10,10 +10,9 @@ export const TodoItemWrapper = styled.div`
   margin: ${({ theme }) => `${theme.spaces[4]}px ${theme.spaces[5]}`};
   @media (max-width: 580px) {
     max-width: ${({ theme }) => theme.size.wrapper}px;
-    margin: ${({ theme }) => `${theme.spaces[4]}px ${theme.spaces[3]}px`};
+    padding: ${({ theme }) => `${theme.spaces[2]}px ${theme.spaces[2]}px`};
   }
   @media (max-width: 460px) {
     max-width: ${({ theme }) => theme.size.smallWrapper}px;
-    margin: ${({ theme }) => `${theme.spaces[3]}px ${theme.spaces[0]}px`};
   }
 `;

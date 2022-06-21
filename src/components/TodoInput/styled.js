@@ -6,7 +6,13 @@ export const TodoInputWrapper = styled.div`
   margin: ${({ theme }) => `${theme.spaces[4]}px ${theme.spaces[5]}`};
   align-items: center;
   @media (max-width: 1070px) {
-    width: 100%;
+    max-width: ${({ theme }) => theme.size.inputSize}px;
+  }
+  @media (max-width: 580px) {
+    width: ${({ theme }) => theme.size.wrapper}px;
+  }
+  @media (max-width: 460px) {
+    max-width: ${({ theme }) => theme.size.smallWrapper}px;
   }
 `;
 

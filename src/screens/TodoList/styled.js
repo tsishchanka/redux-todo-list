@@ -40,19 +40,13 @@ export const ErrorMessageField = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  height: 810px;
-  margin: 20px auto 25px;
+  height: ${({ theme }) => theme.size.medium}px;
   width: ${({ theme }) => theme.size.xs}px;
   overflow-y: ${({ theme }) => theme.spaces[5]};
   overflow-x: hidden;
-  @media (max-width: 1070px) {
-    margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
-    border-left: none;
-  }
 `;
 
 export const CreateTodoWrapper = styled.div`
-  margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
   @media (max-width: 1070px) {
     margin: ${({ theme }) => `${theme.spaces[0]}px ${theme.spaces[5]}`};
   }

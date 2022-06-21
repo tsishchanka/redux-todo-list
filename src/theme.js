@@ -16,10 +16,11 @@ export const fontSize = {
 const size = {
   xs: 550,
   small: 768,
-  medium: 992,
+  medium: 860,
   large: 1200,
   inputSize: 500,
   smallWrapper: 250,
+  mediumWrapper: 300,
   wrapper: 350,
 };
 

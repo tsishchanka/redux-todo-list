@@ -24,8 +24,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
 
   const handleSubmit = useCallback(
     (values, onSubmitProps) => {
-      const inputData = values.text;
-      dispatch(CREATE_TASK_ACTION({ text: inputData }));
+      dispatch(CREATE_TASK_ACTION(values));
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
     },

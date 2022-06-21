@@ -1,13 +1,7 @@
-/* eslint-disable import/order */
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
-
-import TodoInput from '@/components/TodoInput';
-import TodoItem from '@/components/TodoItem';
-import EditableTodo from '@/components/EditableTodo';
-import { CREATE_TASK_ACTION } from '@/constants';
 
 import {
   Container,
@@ -16,6 +10,11 @@ import {
   ListWrapper,
   CreateTodoWrapper,
 } from './styled';
+
+import TodoInput from '@/components/TodoInput';
+import TodoItem from '@/components/TodoItem';
+import EditableTodo from '@/components/EditableTodo';
+import { CREATE_TASK_ACTION } from '@/constants';
 
 const INITIAL_VALUES = { text: '' };
 

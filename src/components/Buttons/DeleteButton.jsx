@@ -7,11 +7,11 @@ import { Delete as DeleteIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
 
-const DeleteButton = ({ handleDelete }) => {
+const DeleteButton = ({ onDelete }) => {
   return (
     <ButtonsWrapper>
       <Tooltip title="Delete Task" enterDelay={600}>
-        <IconButton color="secondary" onClick={handleDelete}>
+        <IconButton color="secondary" onClick={onDelete}>
           <DeleteIcon color="primary" />
         </IconButton>
       </Tooltip>
@@ -20,7 +20,7 @@ const DeleteButton = ({ handleDelete }) => {
 };
 
 DeleteButton.propTypes = {
-  handleDelete: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 export default DeleteButton;

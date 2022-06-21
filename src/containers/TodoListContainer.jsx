@@ -34,9 +34,9 @@ const TodoListContainer = () => {
   return (
     <TodoList
       taskList={taskList}
-      handleEditMode={handleEditMode}
-      handleTaskRemove={handleTaskRemove}
-      handleDiscardChanges={handleDiscardChanges}
+      onEditMode={handleEditMode}
+      onTaskRemove={handleTaskRemove}
+      onDiscardChanges={handleDiscardChanges}
     />
   );
 };

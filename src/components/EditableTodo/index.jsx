@@ -7,7 +7,7 @@ import TodoInput from '../TodoInput';
 
 import { SAVE_EDITED_TASK } from '@/redux/actions';
 
-const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
+const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const dispatch = useDispatch();
   const initialValues = { id, text: initialText };
 
@@ -27,7 +27,7 @@ const EditableTodo = ({ initialText, isEditMode, name, id, handleUndo }) => {
       name={name}
       initialValues={initialValues}
       onSubmit={onSubmit}
-      handleUndo={() => handleUndo(initialValues.id)}
+      onUndo={() => onUndo(initialValues.id)}
     />
   );
 };
@@ -37,7 +37,7 @@ EditableTodo.propTypes = {
   initialText: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
-  handleUndo: PropTypes.func,
+  onUndo: PropTypes.func,
 };
 
 export default EditableTodo;

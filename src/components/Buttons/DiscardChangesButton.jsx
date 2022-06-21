@@ -7,11 +7,11 @@ import { Cancel as CancelIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
 
-const DiscardChangesButton = ({ handleUndo }) => {
+const DiscardChangesButton = ({ onUndo }) => {
   return (
     <ButtonsWrapper>
       <Tooltip title="Discard changes" enterDelay={600}>
-        <IconButton color="secondary" onClick={handleUndo}>
+        <IconButton color="secondary" onClick={onUndo}>
           <CancelIcon color="primary" />
         </IconButton>
       </Tooltip>
@@ -20,7 +20,7 @@ const DiscardChangesButton = ({ handleUndo }) => {
 };
 
 DiscardChangesButton.propTypes = {
-  handleUndo: PropTypes.func,
+  onUndo: PropTypes.func,
 };
 
 export default DiscardChangesButton;

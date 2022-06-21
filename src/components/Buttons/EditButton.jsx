@@ -7,11 +7,11 @@ import { Edit as EditIcon } from '@mui/icons-material';
 
 import { ButtonsWrapper } from './styled';
 
-const EditButton = ({ handleEdit }) => {
+const EditButton = ({ onEdit }) => {
   return (
     <ButtonsWrapper>
       <Tooltip title="Edit Task" enterDelay={600}>
-        <IconButton color="secondary" onClick={handleEdit}>
+        <IconButton color="secondary" onClick={onEdit}>
           <EditIcon color="primary" />
         </IconButton>
       </Tooltip>
@@ -20,7 +20,7 @@ const EditButton = ({ handleEdit }) => {
 };
 
 EditButton.propTypes = {
-  handleEdit: PropTypes.func,
+  onEdit: PropTypes.func,
 };
 
 export default EditButton;

@@ -17,12 +17,7 @@ import {
   CreateTodoWrapper,
 } from './styled';
 
-const TodoList = ({
-  taskList,
-  handleEditMode,
-  handleTaskRemove,
-  handleDiscardChanges,
-}) => {
+const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
   const dispatch = useDispatch();
 
   const initialValues = { text: '' };
@@ -55,8 +50,8 @@ const TodoList = ({
                 orderNumber={index + 1}
                 key={task.id}
                 text={task.text}
-                handleEdit={() => handleEditMode(task.id)}
-                handleDelete={() => handleTaskRemove(task.id)}
+                onEdit={() => onEditMode(task.id)}
+                onDelete={() => onTaskRemove(task.id)}
               />
             ) : (
               <EditableTodo
@@ -65,7 +60,7 @@ const TodoList = ({
                 id={task.id}
                 key={task.id}
                 initialText={task.text}
-                handleUndo={handleDiscardChanges}
+                onUndo={onDiscardChanges}
               />
             );
           })}
@@ -77,9 +72,9 @@ const TodoList = ({
 
 TodoList.propTypes = {
   taskList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleEditMode: PropTypes.func,
-  handleTaskRemove: PropTypes.func,
-  handleDiscardChanges: PropTypes.func,
+  onEditMode: PropTypes.func,
+  onTaskRemove: PropTypes.func,
+  onDiscardChanges: PropTypes.func,
 };
 
 export default TodoList;

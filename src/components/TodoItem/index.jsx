@@ -11,7 +11,7 @@ import {
   IconButtonsWrapper,
 } from './styled';
 
-const TodoItem = ({ orderNumber, text, handleEdit, handleDelete }) => {
+const TodoItem = ({ orderNumber, text, onEdit, onDelete }) => {
   return (
     <TodoItemWrapper>
       <TodoTextWrapper>
@@ -20,8 +20,8 @@ const TodoItem = ({ orderNumber, text, handleEdit, handleDelete }) => {
         </TodoText>
       </TodoTextWrapper>
       <IconButtonsWrapper>
-        <EditButton handleEdit={handleEdit} />
-        <DeleteButton handleDelete={handleDelete} />
+        <EditButton onEdit={onEdit} />
+        <DeleteButton onDelete={onDelete} />
       </IconButtonsWrapper>
     </TodoItemWrapper>
   );
@@ -30,8 +30,8 @@ const TodoItem = ({ orderNumber, text, handleEdit, handleDelete }) => {
 TodoItem.propTypes = {
   orderNumber: PropTypes.number,
   text: PropTypes.string,
-  handleEdit: PropTypes.func,
-  handleDelete: PropTypes.func,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 export default TodoItem;

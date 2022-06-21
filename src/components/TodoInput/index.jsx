@@ -15,7 +15,7 @@ const TodoInput = ({
   initialValues,
   isEditMode,
   name,
-  handleUndo,
+  onUndo,
   onSubmit,
   ...rest
 }) => {
@@ -55,7 +55,7 @@ const TodoInput = ({
                 type="submit"
                 disabled={!formik.isValid || formik.isSubmitting}
               />
-              {isEditMode && <DiscardChangesButton handleUndo={handleUndo} />}
+              {isEditMode && <DiscardChangesButton onUndo={onUndo} />}
             </TodoInputWrapper>
             <ErrorMessageField name={name} />
           </Form>
@@ -70,7 +70,7 @@ TodoInput.propTypes = {
   initialValues: PropTypes.object,
   name: PropTypes.string,
   onSubmit: PropTypes.func,
-  handleUndo: PropTypes.func,
+  onUndo: PropTypes.func,
 };
 
 export default TodoInput;

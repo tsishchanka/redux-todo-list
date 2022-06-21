@@ -14,7 +14,7 @@ import {
 import TodoInput from '@/components/TodoInput';
 import TodoItem from '@/components/TodoItem';
 import EditableTodo from '@/components/EditableTodo';
-import { CREATE_TASK_ACTION } from '@/constants';
+import { CREATE_TASK } from '@/redux/actions';
 
 const INITIAL_VALUES = { text: '' };
 
@@ -23,7 +23,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
 
   const handleSubmit = useCallback(
     (values, onSubmitProps) => {
-      dispatch(CREATE_TASK_ACTION(values));
+      dispatch(CREATE_TASK(values));
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
     },

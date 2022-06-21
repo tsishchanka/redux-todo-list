@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import TodoInput from '../TodoInput';
 
-import { SAVE_EDITED_TASK } from '@/redux/actions';
+import { SAVE_EDITED_TASK_ACTION } from '@/constants';
 
 const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const onSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
-      dispatch(SAVE_EDITED_TASK({ id, inputData }));
+      dispatch(SAVE_EDITED_TASK_ACTION({ id, inputData }));
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
     },

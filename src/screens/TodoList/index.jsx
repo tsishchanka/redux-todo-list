@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import TodoInput from '@/components/TodoInput';
 import TodoItem from '@/components/TodoItem';
 import EditableTodo from '@/components/EditableTodo';
-import { CREATE_TASK } from '@/redux/actions';
+import { CREATE_TASK_ACTION } from '@/constants';
 
 import {
   Container,
@@ -25,7 +25,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
   const onSubmit = useCallback(
     (values, onSubmitProps) => {
       const inputData = values.text;
-      dispatch(CREATE_TASK({ text: inputData }));
+      dispatch(CREATE_TASK_ACTION({ text: inputData }));
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
     },

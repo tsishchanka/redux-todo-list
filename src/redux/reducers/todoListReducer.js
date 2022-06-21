@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { v4 as uuidv4 } from 'uuid';
 
-import * as actions from '../actions';
+import * as actions from '@/constants';
 
 const defaultState = {
   taskList: [],
@@ -9,7 +9,7 @@ const defaultState = {
 
 const todoListReducer = handleActions(
   {
-    [actions.CREATE_TASK]: ({ taskList }, { payload }) => {
+    [actions.CREATE_TASK_ACTION]: ({ taskList }, { payload }) => {
       const { text } = payload;
       const newTask = {
         id: uuidv4(),
@@ -21,7 +21,7 @@ const todoListReducer = handleActions(
       };
     },
 
-    [actions.SET_EDIT_MODE]: (state, { payload: taskId }) => {
+    [actions.SET_EDIT_MODE_ACTION]: (state, { payload: taskId }) => {
       const updatedState = state.taskList.map(task => ({
         ...task,
         isEditMode: taskId === task.id ? true : task.isEditMode,
@@ -31,7 +31,7 @@ const todoListReducer = handleActions(
       };
     },
 
-    [actions.DELETE_TASK]: (state, { payload: taskId }) => {
+    [actions.DELETE_TASK_ACTION]: (state, { payload: taskId }) => {
       const listCopy = [...state.taskList];
       const itemIndexToRemove = listCopy.findIndex(task => task.id === taskId);
 
@@ -41,7 +41,7 @@ const todoListReducer = handleActions(
       };
     },
 
-    [actions.SAVE_EDITED_TASK]: (state, { payload }) => {
+    [actions.SAVE_EDITED_TASK_ACTION]: (state, { payload }) => {
       const { id, inputData } = payload;
 
       const updatedState = state.taskList.map(task => {
@@ -58,7 +58,7 @@ const todoListReducer = handleActions(
       };
     },
 
-    [actions.DISCARD_CHANGES]: (state, { payload: taskId }) => {
+    [actions.DISCARD_CHANGES_ACTION]: (state, { payload: taskId }) => {
       const updatedState = state.taskList.map(task => ({
         ...task,
         isEditMode: task.id === taskId ? false : task.isEditMode,

@@ -17,10 +17,10 @@ import {
   CreateTodoWrapper,
 } from './styled';
 
+const INITIAL_VALUES = { text: '' };
+
 const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
   const dispatch = useDispatch();
-
-  const initialValues = { text: '' };
 
   const handleSubmit = useCallback(
     (values, onSubmitProps) => {
@@ -39,7 +39,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
           <Title>Create your task</Title>
           <TodoInput
             name="text"
-            initialValues={initialValues}
+            initialValues={INITIAL_VALUES}
             onSubmit={handleSubmit}
           />
         </CreateTodoWrapper>

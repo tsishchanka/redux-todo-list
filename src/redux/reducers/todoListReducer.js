@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import * as actions from '@/constants';
 
-const defaultState = {
+const DEFAULT_STATE = {
   taskList: [],
 };
 
@@ -68,7 +68,7 @@ const todoListReducer = handleActions(
       };
     },
   },
-  defaultState,
+  DEFAULT_STATE,
 );
 
 export default todoListReducer;

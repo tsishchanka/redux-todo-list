@@ -9,7 +9,7 @@ import { SAVE_EDITED_TASK_ACTION } from '@/constants';
 
 const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const dispatch = useDispatch();
-  const initialValues = { id, text: initialText };
+  const INITIAL_VALUES = { id, text: initialText };
 
   const handleSubmit = useCallback(
     (values, onSubmitProps) => {
@@ -25,9 +25,9 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
     <TodoInput
       isEditMode={isEditMode}
       name={name}
-      initialValues={initialValues}
+      initialValues={INITIAL_VALUES}
       onSubmit={handleSubmit}
-      onUndo={() => onUndo(initialValues.id)}
+      onUndo={() => onUndo(INITIAL_VALUES.id)}
     />
   );
 };

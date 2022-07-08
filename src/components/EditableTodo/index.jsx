@@ -7,7 +7,7 @@ import TodoInput from '../TodoInput';
 
 import { TodoItemWrapper } from './styled';
 
-import { SAVE_EDITED_TASK } from '@/redux/actions';
+import { SAVE_EDITED_TASK } from '@/actions';
 
 const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   const dispatch = useDispatch();

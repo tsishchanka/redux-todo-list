@@ -14,7 +14,7 @@ import {
 import TodoInput from '@/components/TodoInput';
 import TodoItem from '@/components/TodoItem';
 import EditableTodo from '@/components/EditableTodo';
-import { CREATE_TASK } from '@/redux/actions';
+import { CREATE_TASK } from '@/actions';
 
 const INITIAL_VALUES = { text: '' };
 

@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { v4 as uuidv4 } from 'uuid';
 
-import * as actions from '@/redux/actions';
+import * as actions from '@/actions';
 
 const DEFAULT_STATE = {
   taskList: [],

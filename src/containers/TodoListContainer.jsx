@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SET_EDIT_MODE, DELETE_TASK, DISCARD_CHANGES } from '@/redux/actions';
+import { SET_EDIT_MODE, DELETE_TASK, DISCARD_CHANGES } from '@/actions';
 
 import TodoList from '@/screens/TodoList';
 

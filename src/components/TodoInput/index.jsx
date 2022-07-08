@@ -46,7 +46,6 @@ const TodoInput = ({
                       placeholder="Enter your task here ..."
                       maxRows={8}
                       {...field}
-                      {...rest}
                     />
                   );
                 }}

@@ -12,12 +12,11 @@ import {
 } from './styled';
 
 const TodoItem = ({ orderNumber, text, onEdit, onDelete }) => {
+  const order = `${orderNumber}. ${text}`;
   return (
     <TodoItemWrapper>
       <TodoTextWrapper>
-        <TodoText>
-          {orderNumber}. {text}
-        </TodoText>
+        <TodoText>{order}</TodoText>
       </TodoTextWrapper>
       <IconButtonsWrapper>
         <EditButton onEdit={onEdit} />

@@ -30,7 +30,7 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
         name={name}
         initialValues={INITIAL_VALUES}
         onSubmit={handleSubmit}
-        onUndo={() => onUndo(INITIAL_VALUES.id)}
+        onUndo={onUndo(INITIAL_VALUES.id)}
       />
     </TodoItemWrapper>
   );

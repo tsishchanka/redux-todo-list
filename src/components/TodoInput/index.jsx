@@ -2,12 +2,11 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import { TextField } from '@mui/material';
 
 import Button from '../Button';
-import ErrorMessageField from '../ErrorMessageField';
 
 import { TodoInputWrapper } from './styled';
 
@@ -26,6 +25,7 @@ const TodoInput = ({
     }
     return errors;
   };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -59,7 +59,7 @@ const TodoInput = ({
                 <Button mode="cancel" title="Discard changes" onUndo={onUndo} />
               )}
             </TodoInputWrapper>
-            <ErrorMessageField name={name} />
+            <ErrorMessage name={name} />
           </Form>
         );
       }}

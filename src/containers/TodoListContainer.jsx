@@ -11,21 +11,21 @@ const TodoListContainer = () => {
   const { taskList } = useSelector(state => state.toDoList);
 
   const handleEditMode = useCallback(
-    taskId => {
+    taskId => () => {
       dispatch(SET_EDIT_MODE(taskId));
     },
     [dispatch],
   );
 
   const handleTaskRemove = useCallback(
-    taskId => {
+    taskId => () => {
       dispatch(DELETE_TASK(taskId));
     },
     [dispatch],
   );
 
   const handleDiscardChanges = useCallback(
-    id => {
+    id => () => {
       dispatch(DISCARD_CHANGES(id));
     },
     [dispatch],

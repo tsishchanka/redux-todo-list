@@ -48,8 +48,8 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
                 orderNumber={index + 1}
                 key={task.id}
                 text={task.text}
-                onEdit={() => onEditMode(task.id)}
-                onDelete={() => onTaskRemove(task.id)}
+                onEdit={onEditMode(task.id)}
+                onDelete={onTaskRemove(task.id)}
               />
             ) : (
               <EditableTodo

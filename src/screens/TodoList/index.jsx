@@ -11,8 +11,8 @@ import {
   CreateTodoWrapper,
 } from './styled';
 
-import TodoInput from '@/components/TodoInput';
-import TodoItem from '@/components/TodoItem';
+import Input from '@/components/Input';
+import TodoItem from '@/components/Item';
 import EditableTodo from '@/components/EditableTodo';
 import { CREATE_TASK } from '@/actions';
 
@@ -35,7 +35,7 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
       <TodoWrapper>
         <CreateTodoWrapper>
           <Title>Create your task</Title>
-          <TodoInput
+          <Input
             name="text"
             initialValues={INITIAL_VALUES}
             onSubmit={handleSubmit}

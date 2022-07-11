@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoItemWrapper = styled.div`
+export const ItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   border: ${({ theme }) => theme.spaces[1]}px solid

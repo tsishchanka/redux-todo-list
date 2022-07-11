@@ -8,34 +8,21 @@ import { TextField } from '@mui/material';
 
 import Button from '../Button';
 
-import { TodoInputWrapper } from './styled';
+import validateFormik from '../../utils/validate';
 
-const TodoInput = ({
-  initialValues,
-  isEditMode,
-  name,
-  onUndo,
-  onSubmit,
-  ...rest
-}) => {
-  const validate = values => {
-    const errors = {};
-    if (!values.text) {
-      errors.text = 'The task field is empty.';
-    }
-    return errors;
-  };
+import { InputWrapper } from './styled';
 
+const Input = ({ initialValues, isEditMode, name, onUndo, onSubmit }) => {
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validate={validate}
+      validate={validateFormik}
     >
       {formik => {
         return (
           <Form>
-            <TodoInputWrapper>
+            <InputWrapper>
               <Field name={name}>
                 {({ field }) => {
                   return (
@@ -58,7 +45,7 @@ const TodoInput = ({
               {isEditMode && (
                 <Button mode="cancel" title="Discard changes" onUndo={onUndo} />
               )}
-            </TodoInputWrapper>
+            </InputWrapper>
             <ErrorMessage name={name} />
           </Form>
         );
@@ -67,7 +54,7 @@ const TodoInput = ({
   );
 };
 
-TodoInput.propTypes = {
+Input.propTypes = {
   isEditMode: PropTypes.bool,
   initialValues: PropTypes.object,
   name: PropTypes.string,
@@ -75,4 +62,4 @@ TodoInput.propTypes = {
   onUndo: PropTypes.func,
 };
 
-export default TodoInput;
+export default Input;

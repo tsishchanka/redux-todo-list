@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoInputWrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   width: ${({ theme }) => theme.size.inputSize}px;
   margin: ${({ theme }) => `${theme.spaces[4]}px ${theme.spaces[5]}`};

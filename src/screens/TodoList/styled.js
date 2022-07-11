@@ -22,7 +22,7 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-export const TodoInputWrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   @media (max-width: 1070px) {
     width: 100%;

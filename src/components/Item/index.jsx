@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Button from '../Button';
 
 import {
-  TodoItemWrapper,
+  ItemWrapper,
   TodoTextWrapper,
   TodoText,
   IconButtonsWrapper,
@@ -14,7 +14,7 @@ import {
 const TodoItem = ({ orderNumber, text, onEdit, onDelete }) => {
   const order = `${orderNumber}. ${text}`;
   return (
-    <TodoItemWrapper>
+    <ItemWrapper>
       <TodoTextWrapper>
         <TodoText>{order}</TodoText>
       </TodoTextWrapper>
@@ -22,7 +22,7 @@ const TodoItem = ({ orderNumber, text, onEdit, onDelete }) => {
         <Button mode="edit" title="Edit Task" onEdit={onEdit} />
         <Button mode="delete" title="Delete Task" onDelete={onDelete} />
       </IconButtonsWrapper>
-    </TodoItemWrapper>
+    </ItemWrapper>
   );
 };
 

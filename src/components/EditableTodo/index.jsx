@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
-import TodoInput from '../TodoInput';
+import Input from '../Input';
 
-import { TodoItemWrapper } from './styled';
+import { ItemWrapper } from './styled';
 
 import { SAVE_EDITED_TASK } from '@/actions';
 
@@ -24,15 +24,15 @@ const EditableTodo = ({ initialText, isEditMode, name, id, onUndo }) => {
   );
 
   return (
-    <TodoItemWrapper>
-      <TodoInput
+    <ItemWrapper>
+      <Input
         isEditMode={isEditMode}
         name={name}
         initialValues={INITIAL_VALUES}
         onSubmit={handleSubmit}
         onUndo={onUndo(INITIAL_VALUES.id)}
       />
-    </TodoItemWrapper>
+    </ItemWrapper>
   );
 };
 

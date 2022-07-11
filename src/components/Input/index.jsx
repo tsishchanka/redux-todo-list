@@ -8,9 +8,9 @@ import { TextField } from '@mui/material';
 
 import Button from '../Button';
 
-import validateFormik from '../../utils/validate';
-
 import { InputWrapper } from './styled';
+
+import validateFormik from '@/utils/validate';
 
 const Input = ({ initialValues, isEditMode, name, onUndo, onSubmit }) => {
   return (

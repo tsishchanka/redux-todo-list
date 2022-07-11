@@ -42,22 +42,22 @@ const TodoList = ({ taskList, onEditMode, onTaskRemove, onDiscardChanges }) => {
           />
         </CreateTodoWrapper>
         <ListWrapper>
-          {taskList.map((task, index) => {
-            return !task.isEditMode ? (
+          {taskList.map(({ id, text, isEditMode }, index) => {
+            return !isEditMode ? (
               <TodoItem
                 orderNumber={index + 1}
-                key={task.id}
-                text={task.text}
-                onEdit={onEditMode(task.id)}
-                onDelete={onTaskRemove(task.id)}
+                key={id}
+                text={text}
+                onEdit={onEditMode(id)}
+                onDelete={onTaskRemove(id)}
               />
             ) : (
               <EditableTodo
                 name="text"
-                isEditMode={task.isEditMode}
-                id={task.id}
-                key={task.id}
-                initialText={task.text}
+                isEditMode={isEditMode}
+                id={id}
+                key={id}
+                initialText={text}
                 onUndo={onDiscardChanges}
               />
             );

@@ -18,20 +18,37 @@ const Button = ({ disabled, type, title, mode, onEdit, onDelete, onUndo }) => {
       case 'create':
         return <BookmarkAddedIcon color={iconColor} />;
       case 'delete':
-        return <DeleteIcon color="primary" onClick={onDelete} />;
+        return <DeleteIcon color="primary" />;
       case 'cancel':
-        return <CancelIcon color="primary" onClick={onUndo} />;
+        return <CancelIcon color="primary" />;
       case 'edit':
-        return <EditIcon color="primary" onClick={onEdit} />;
+        return <EditIcon color="primary" />;
       default:
         return <BookmarkAddedIcon color={iconColor} />;
+    }
+  };
+
+  const getClickMode = mode => {
+    switch (mode) {
+      case 'delete':
+        return onDelete;
+      case 'cancel':
+        return onUndo;
+      case 'edit':
+        return onEdit;
+      default:
+        return onUndo;
     }
   };
 
   return (
     <ButtonsWrapper>
       <Tooltip title={title} enterDelay={500}>
-        <IconButton type={type} disabled={mode === 'create' && disabled}>
+        <IconButton
+          type={type}
+          disabled={mode === 'create' && disabled}
+          onClick={getClickMode(mode)}
+        >
           {getIcon(mode)}
         </IconButton>
       </Tooltip>

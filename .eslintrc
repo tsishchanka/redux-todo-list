@@ -1,66 +1,64 @@
 {
     "extends": [
-    "react-app",
-    "react-app/jest"
-],
-"rules": {
-    "arrow-parens": [
-        "error",
-        "as-needed"
+        "react-app",
+        "react-app/jest"
     ],
-    "comma-dangle": [
-        "error",
-        "always-multiline"
-    ],
-    
-    "import/order": [
-        "error",
-        {
-            "groups": [
-                "builtin",
-                "external",
-                "internal",
-                "parent",
-                "sibling",
-                "index",
-                "object",
-                "type"
-            ],
-            "newlines-between": "always-and-inside-groups"
-        }
-    ],
-    "indent": [
-        "warn",
-        2
-    ],
-    "jsx-quotes": ["error", "prefer-double"],
-    "quotes": [
-        "error",
-        "single"
-    ],
-    "max-len": [
-        "error",
-        {
-            "code": 120
-        }
-    ],
-    "no-unused-vars": "warn",
-    "no-console": "warn",
-    "operator-linebreak": "warn",
-    "padding-line-between-statements": "error",
-    "prefer-const": [
-        "error",
-        {
-            "destructuring": "any",
-            "ignoreReadBeforeAssign": false
-        }
-    ],
-    "react/prop-types": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react/jsx-closing-tag-location": 2,
-    "semi": [
-        "warn",
-        "always"
-    ]
+    "rules": {
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index",
+                    "object",
+                    "type"
+                ],
+                "newlines-between": "always-and-inside-groups"
+            }
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "operator-linebreak": "warn",
+        "padding-line-between-statements": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
+        "react/prop-types": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-closing-tag-location": 2,
+        "semi": [
+            "warn",
+            "always"
+        ]
     }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { EditButton, DeleteButton } from '../Buttons';
+import Button from '../Button';
 
 import {
   TodoItemWrapper,
@@ -19,8 +19,8 @@ const TodoItem = ({ orderNumber, text, onEdit, onDelete }) => {
         <TodoText>{order}</TodoText>
       </TodoTextWrapper>
       <IconButtonsWrapper>
-        <EditButton onEdit={onEdit} />
-        <DeleteButton onDelete={onDelete} />
+        <Button mode="edit" title="Edit Task" onEdit={onEdit} />
+        <Button mode="delete" title="Delete Task" onDelete={onDelete} />
       </IconButtonsWrapper>
     </TodoItemWrapper>
   );

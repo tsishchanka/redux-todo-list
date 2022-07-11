@@ -6,7 +6,7 @@ import { Formik, Form, Field } from 'formik';
 
 import { TextField } from '@mui/material';
 
-import { CreateButton, DiscardChangesButton } from '../Buttons';
+import Button from '../Button';
 import ErrorMessageField from '../ErrorMessageField';
 
 import { TodoInputWrapper } from './styled';
@@ -43,18 +43,21 @@ const TodoInput = ({
                       id={name}
                       multiline
                       fullWidth
-                      placeholder="Enter your task here ..."
                       maxRows={8}
                       {...field}
                     />
                   );
                 }}
               </Field>
-              <CreateButton
+              <Button
+                mode="create"
                 type="submit"
                 disabled={!formik.isValid || formik.isSubmitting}
+                title="Create Task"
               />
-              {isEditMode && <DiscardChangesButton onUndo={onUndo} />}
+              {isEditMode && (
+                <Button mode="cancel" title="Discard changes" onUndo={onUndo} />
+              )}
             </TodoInputWrapper>
             <ErrorMessageField name={name} />
           </Form>
